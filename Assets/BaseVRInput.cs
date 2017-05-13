@@ -5,10 +5,15 @@ using VR = UnityEngine.VR;
 
 public class BaseVRInput : MonoBehaviour
 {
+    [SerializeField]
+    float DistanceModifier = 1;
+    [SerializeField]
+    bool IsLeftHand;
 
-	void Update ()
+    void Update ()
     {
-        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
-        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
+        OVRInput.Controller hand = IsLeftHand ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch;
+        transform.localPosition = OVRInput.GetLocalControllerPosition(hand) * DistanceModifier;
+        transform.localRotation = OVRInput.GetLocalControllerRotation(hand);
 	}
 }
