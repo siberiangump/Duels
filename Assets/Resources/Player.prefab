@@ -1965,7 +1965,7 @@ Transform:
   m_GameObject: {fileID: 1962965948729410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.38, y: -0.096999645, z: -0.999}
-  m_LocalScale: {x: 0.31571656, y: 0.31571656, z: 0.31571656}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4557011736481330}
   m_RootOrder: 1
@@ -2167,7 +2167,7 @@ Transform:
   m_GameObject: {fileID: 1763156625242884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.226, y: -0.096999645, z: -0.999}
-  m_LocalScale: {x: 0.31571656, y: 0.31571656, z: 0.31571656}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4557011736481330}
   m_RootOrder: 3
@@ -2452,7 +2452,7 @@ Transform:
   m_GameObject: {fileID: 1009425431996542}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.2, y: -0.096999645, z: 0.4}
-  m_LocalScale: {x: 0.18811534, y: 0.18811534, z: 0.18811534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4557011736481330}
   m_RootOrder: 0
@@ -2531,7 +2531,7 @@ Transform:
   m_GameObject: {fileID: 1650039369906836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.3, y: -0.096999645, z: 0.779}
-  m_LocalScale: {x: 0.18811534, y: 0.18811534, z: 0.18811534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4557011736481330}
   m_RootOrder: 2
@@ -3501,7 +3501,7 @@ MonoBehaviour:
   minRenderScale: 0.7
   maxRenderScale: 1
   _trackingOriginType: 0
-  usePositionTracking: 1
+  usePositionTracking: 0
   useRotationTracking: 1
   useIPDInPositionTracking: 1
   resetTrackerOnLoad: 0
