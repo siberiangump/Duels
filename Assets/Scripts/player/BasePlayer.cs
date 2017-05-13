@@ -6,6 +6,21 @@ using UnityEngine.Networking;
 public class BasePlayer : NetworkBehaviour, IShooter, IShootable
 {
     [SerializeField] TempBullet BulletPrefab;
+    [SerializeField] Transform CameraAnchor;
+
+    public override void OnStartLocalPlayer()
+    {
+        SetupCamera();
+    }
+
+    private void SetupCamera()
+    {
+        Camera camera = Camera.main;
+
+        camera.transform.parent = CameraAnchor;
+        camera.transform.localPosition = Vector3.zero;
+        camera.transform.localEulerAngles = Vector3.zero;
+    }
 
     private void Update()
     {
@@ -55,8 +70,9 @@ public class BasePlayer : NetworkBehaviour, IShooter, IShootable
     private void SpawnBullet()
     {
         TempBullet bullet = GameObject.Instantiate(BulletPrefab);
-        bullet.transform.position = this.transform.position;  // needs to be value of a gun
-        bullet.CachedRigidbody.velocity = Vector3.forward * bullet.FlySpeed;
+        bullet.transform.position = CameraAnchor.position;  // needs to be value of a gun
+
+        bullet.CachedRigidbody.velocity = Vector3.left * bullet.FlySpeed;
 
         Destroy(bullet.gameObject, bullet.DestroyDelay);
         NetworkServer.Spawn(bullet.gameObject);
