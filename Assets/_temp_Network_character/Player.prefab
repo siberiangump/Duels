@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004d8a55c104be640b0ea076bd0898bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 114372669520229410, guid: 247ad59f2e9c1b04284f164734e94841,
+    type: 2}
 --- !u!136 &136229787048960528
 CapsuleCollider:
   m_ObjectHideFlags: 1
