@@ -7,29 +7,51 @@ public class PestolGrab : MonoBehaviour
     [SerializeField]
     private GameObject Ungrabbed;
     [SerializeField]
+    private Transform UngrabbedHandler;
+    [SerializeField]
     private GameObject Grabbed;
+
+
+
     [SerializeField]
     private float DistanceToGrab;
     [SerializeField]
     private GameObject HandPosition;
 
+
+    [SerializeField] float Distance;
+
+    [SerializeField] bool BoolPrimaryIndexTrigger;
+
     private void Update()
     {
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0)
+
+        if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger | OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
         {
-            Grab();
-            Debug.LogError("!");
+            Distance = Vector3.Distance(HandPosition.transform.position, UngrabbedHandler.transform.position);
+            if (Vector3.Distance(HandPosition.transform.position, UngrabbedHandler.transform.position) < DistanceToGrab)
+            {
+                Grab(true);
+            }
         }
-        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0)
+        else
         {
-            Grab();
-            Debug.LogError("&!");
+            Grab(false);
         }
+
+        //Grab(OVRInput.Get(OVRInput.Button.SecondaryHandTrigger));
+        //    Debug.Log("asdasda");
+        //}
+        //if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+        //{
+        //    Grab();
+        //    Debug.Log("asdasgadgfasf");
+        //}
     }
-    
-    private void Grab()
+
+    private void Grab(bool state)
     {
-        Ungrabbed.SetActive(false);
-        Grabbed.SetActive(true);
+        Ungrabbed.SetActive(!state);
+        Grabbed.SetActive(state);
     }
 }
