@@ -23,6 +23,7 @@ public class Pistol : MonoBehaviour
 
     public void Shot()
     {
+
         GameObject go = Instantiate(Pulia);
         go.transform.position = SecondaryPoint.position;
         go.transform.rotation = SecondaryPoint.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
