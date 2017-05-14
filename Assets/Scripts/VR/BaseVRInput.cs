@@ -11,11 +11,13 @@ public class BaseVRInput : MonoBehaviour
     bool IsLeftHand;
     [SerializeField]
     Vector3 EulerCorrelation;
+    [SerializeField]
+    Vector3 PositionCorrelation;
 
     void Update ()
     {
         OVRInput.Controller hand = IsLeftHand ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch;
-        transform.localPosition = (OVRInput.GetLocalControllerPosition(hand)); //* DistanceModifier;
+        transform.position = OVRInput.GetLocalControllerPosition(hand) * DistanceModifier + PositionCorrelation; //* DistanceModifier;
         //Debug.LogError(OVRInput.GetLocalControllerPosition(hand));
         if (EulerCorrelation.sqrMagnitude > 0)
             transform.localRotation = OVRInput.GetLocalControllerRotation(hand) * Quaternion.Euler(EulerCorrelation);
